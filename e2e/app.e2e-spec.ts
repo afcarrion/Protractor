@@ -33,3 +33,35 @@ describe('Tour of heroes, heroes page', () => {
   });
 
 });
+
+describe('Tour of herous, buscar un heroe', () =>{
+  let page: TourOfHeroesPage;
+
+  beforeEach(() =>{
+    page = new TourOfHeroesPage;
+    page.navigateToHeroes();
+  });
+
+  it('Buscar Heroe', () =>{
+    page.navigateTo();
+    expect(page.enterHeroSearch("Bombasto").count()).toBe(1);
+  });
+});
+
+describe('Tour of herous, Elimina tu heroe', () =>{
+    let page: TourOfHeroesPage;
+
+    beforeEach(()=>{
+      page = new TourOfHeroesPage;
+      page.navigateToHeroes();
+    });
+
+    it('Eliminar un Heroe', () =>{
+      const currentHeroes = page.getAllHeroes().count();
+      page.removeHero();
+      //eliminar el heroe
+      expect(page.getAllHeroes().count()).toBe(currentHeroes.then(n => n - 1));
+    })
+
+ });
+

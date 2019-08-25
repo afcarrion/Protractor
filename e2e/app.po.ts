@@ -21,4 +21,23 @@ export class TourOfHeroesPage {
     element(by.tagName('input')).sendKeys(newHero);
     element(by.buttonText('Add')).click();
   }
+
+  /*Buscar un heroe*/
+  enterHeroSearch(hero: string){
+    browser.sleep(2000);
+    element(by.id('search-box')).sendKeys(hero);
+    browser.sleep(2000);
+    return element.all(by.css('.search-result'));
+  }
+
+  /*Eliminar Heroe*/
+  removeHero(){
+    /*Entra recurrente a los dos element para ubicar primero la clase heroes 
+    y posteriormente la clase delete del heroe en la lista*/
+    browser.sleep(2000);
+    element(by.css('.heroes')).element(by.css('.delete')).click()
+    browser.sleep(2000);
+  }
+
+
 }
