@@ -34,6 +34,25 @@ describe('Tour of heroes, heroes page', () => {
 
 });
 
+describe('Tour of herous, Navegar un heroe', () =>{
+   let page: TourOfHeroesPage;
+
+  beforeEach(() =>{
+    page = new TourOfHeroesPage;
+    page.navigateToHeroes();
+  });
+
+  /*it('Navegar a un heroe', () =>{
+    page.selectHeroDashBoard();
+    expect(page.getTag()).toEqual(['Celeritas details!']);
+  });*/
+  it('Navegar a un heroe', () => {
+    page.navigateTo();
+    page.selectHeroDashBoard();
+    expect(page.getTag()).toEqual(['Mr. Nice details!']);
+  });
+});
+
 describe('Tour of herous, buscar un heroe', () =>{
   let page: TourOfHeroesPage;
 
@@ -64,4 +83,6 @@ describe('Tour of herous, Elimina tu heroe', () =>{
     })
 
  });
+
+
 

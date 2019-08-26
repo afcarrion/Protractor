@@ -39,5 +39,14 @@ export class TourOfHeroesPage {
     browser.sleep(2000);
   }
 
+  getTag(){
+    return element.all(by.tagName("H2")).getText();
+  }
+
+  selectHeroDashBoard(){
+    browser.sleep(2000);
+    element(by.css('.col-1-4')).click();
+    browser.sleep(2000);
+  }
 
 }
