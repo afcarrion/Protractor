@@ -30,6 +30,14 @@ export class TourOfHeroesPage {
     return element.all(by.css('.search-result'));
   }
 
+  /*Ir al heroe*/
+  goToHeroSearch(){
+    browser.sleep(2000);
+    element.all(by.css('.search-result')).click();
+    browser.sleep(2000);
+  }
+
+
   /*Eliminar Heroe*/
   removeHero(){
     /*Entra recurrente a los dos element para ubicar primero la clase heroes 
@@ -47,6 +55,14 @@ export class TourOfHeroesPage {
     browser.sleep(2000);
     element(by.css('.col-1-4')).click();
     browser.sleep(2000);
+  }
+
+  selectFirstHero() {
+    element(by.css('.heroes')).element(by.tagName('li')).click();
+  }
+
+  selectedHeroList() {
+    element(by.buttonText('View Details')).click();
   }
 
 }

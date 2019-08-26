@@ -34,7 +34,7 @@ describe('Tour of heroes, heroes page', () => {
 
 });
 
-describe('Tour of herous, Navegar un heroe', () =>{
+describe('Tour of heroes, Navegar un heroe', () =>{
    let page: TourOfHeroesPage;
 
   beforeEach(() =>{
@@ -53,7 +53,7 @@ describe('Tour of herous, Navegar un heroe', () =>{
   });
 });
 
-describe('Tour of herous, buscar un heroe', () =>{
+describe('Tour of heroes, buscar un heroe', () =>{
   let page: TourOfHeroesPage;
 
   beforeEach(() =>{
@@ -67,7 +67,7 @@ describe('Tour of herous, buscar un heroe', () =>{
   });
 });
 
-describe('Tour of herous, Elimina tu heroe', () =>{
+describe('Tour of heroes, Elimina tu heroe', () =>{
     let page: TourOfHeroesPage;
 
     beforeEach(()=>{
@@ -83,6 +83,38 @@ describe('Tour of herous, Elimina tu heroe', () =>{
     })
 
  });
+
+describe('Tour of heroes, Navegar un heroe desde la lista', () => {
+  let page: TourOfHeroesPage;
+
+  beforeEach(() => {
+    page = new TourOfHeroesPage();
+    page.navigateToHeroes();
+  });
+
+  it('Navegar un heroe desde la lista', () => {
+    page.selectFirstHero();
+    page.selectedHeroList();
+    expect(page.getTag()).toEqual(['Mr. Nice details!']);
+  });
+});
+
+describe('Tour of heroes, ir a buscar un heroe desde el cuadro busqueda', () =>{
+  let page: TourOfHeroesPage;
+
+  beforeEach(() =>{
+    page = new TourOfHeroesPage;
+    page.navigateTo();
+  });
+
+  it('Buscar Heroe desde cuadro search', () =>{
+    page.navigateTo();
+    expect(page.enterHeroSearch("Bombasto").count()).toBe(1);
+    page.goToHeroSearch();
+  });
+});
+
+
 
 
 
